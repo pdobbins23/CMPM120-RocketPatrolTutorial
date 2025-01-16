@@ -28,11 +28,9 @@ class Menu extends Phaser.Scene {
 		// load sfx
 		this.load.path = "./assets/sfx/";
 
-		this.load.audio([
-			{ key: "sfx-select" },
-			{ key: "sfx-explosion" },
-			{ key: "sfx-shot" },
-		]);
+		this.load.audio("sfx-select", "sfx-select.wav");
+		this.load.audio("sfx-explosion", "sfx-explosion.wav");
+		this.load.audio("sfx-shot", "sfx-shot.wav");
 	}
 
 	create() {

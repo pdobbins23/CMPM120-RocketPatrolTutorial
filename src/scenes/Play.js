@@ -122,7 +122,7 @@ class Play extends Phaser.Scene {
 					.text(
 						game.config.width / 2,
 						game.config.height / 2 + 64,
-						"Press (R) to Restart",
+						"Press (R) to Restart or <- for Menu",
 						scoreConfig,
 					)
 					.setOrigin(0.5);
@@ -143,6 +143,8 @@ class Play extends Phaser.Scene {
 			this.ship03.update();
 		} else if (Phaser.Input.Keyboard.JustDown(keyRESET)) {
 			this.scene.restart();
+		} else if (Phaser.Input.Keyboard.JustDown(keyLEFT)) {
+			this.scene.start("menuScene");
 		}
 
 		if (this.checkCollision(this.p1Rocket, this.ship01)) {
@@ -183,6 +185,6 @@ class Play extends Phaser.Scene {
 		this.p1Score += ship.points;
 		this.scoreLeft.text = this.p1Score;
 
-		this.sound.play("ship-explosion");
+		this.sound.play("sfx-explosion");
 	}
 }
